@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SnowSW/client/issues"
   },
-  "homepage": "https://github.com/SnowSW/client#readme"
+  "homepage": "https://github.com/SnowSW/client#readme",
+  "dependencies": {
+    "webtorrent": "^0.98.3"
+  }
 }

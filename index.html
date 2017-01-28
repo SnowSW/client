@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+
   <title>Client Demo Snow</title>
+
+  <!-- Web Torrent -->
+  <script src="./node_modules/webtorrent/webtorrent.min.js"></script>
+
+  <!-- Miligram Framework -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+  <meta charset="UTF-8">
+
 </head>
 <body>
-  <h1>Hello world</h1>
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <h1>Snow CDN Demo</h1>
+
+      <script>
+        var client = new WebTorrent()
+
+        var torrentId = 'magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel-1024-surround.mp4'
+
+        client.add(torrentId, function (torrent) {
+          // Torrents can contain many files. Let's use the first.
+          var file = torrent.files[0]
+
+          // Display the file by adding it to the DOM. Supports video, audio, image, etc. files
+          file.appendTo('body')
+        })
+      </script>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
